@@ -1,4 +1,4 @@
-package tokudb
+package tokuft
 
 /*
  #include "tokudb.h"

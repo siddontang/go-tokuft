@@ -11,7 +11,7 @@ function add_path()
   fi
 }
 
-TOKUDB_DIR=/usr/local/tokudb
+TOKUDB_DIR=/usr/local/tokuft
 
 export CGO_CFLAGS="$CGO_CFLAGS -I$TOKUDB_DIR/include"
 export CGO_CXXFLAGS="$CGO_CXXFLAGS -I$TOKUDB_DIR/include"
