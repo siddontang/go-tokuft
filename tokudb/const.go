@@ -1,0 +1,72 @@
+package tokudb
+
+// #include "tokudb.h"
+import "C"
+
+const (
+	DB_VERB_DEADLOCK              = C.DB_VERB_DEADLOCK
+	DB_VERB_RECOVERY              = C.DB_VERB_RECOVERY
+	DB_VERB_REPLICATION           = C.DB_VERB_REPLICATION
+	DB_VERB_WAITSFOR              = C.DB_VERB_WAITSFOR
+	DB_ARCH_ABS                   = C.DB_ARCH_ABS
+	DB_ARCH_LOG                   = C.DB_ARCH_LOG
+	DB_CREATE                     = C.DB_CREATE
+	DB_CXX_NO_EXCEPTIONS          = C.DB_CXX_NO_EXCEPTIONS
+	DB_EXCL                       = C.DB_EXCL
+	DB_PRIVATE                    = C.DB_PRIVATE
+	DB_RDONLY                     = C.DB_RDONLY
+	DB_RECOVER                    = C.DB_RECOVER
+	DB_THREAD                     = C.DB_THREAD
+	DB_TXN_NOSYNC                 = C.DB_TXN_NOSYNC
+	DB_BLACKHOLE                  = C.DB_BLACKHOLE
+	DB_LOCK_DEFAULT               = C.DB_LOCK_DEFAULT
+	DB_LOCK_OLDEST                = C.DB_LOCK_OLDEST
+	DB_LOCK_RANDOM                = C.DB_LOCK_RANDOM
+	DB_KEYFIRST                   = C.DB_KEYFIRST
+	DB_KEYLAST                    = C.DB_KEYLAST
+	DB_NOOVERWRITE                = C.DB_NOOVERWRITE
+	DB_NODUPDATA                  = C.DB_NODUPDATA
+	DB_NOOVERWRITE_NO_ERROR       = C.DB_NOOVERWRITE_NO_ERROR
+	DB_OPFLAGS_MASK               = C.DB_OPFLAGS_MASK
+	DB_AUTO_COMMIT                = C.DB_AUTO_COMMIT
+	DB_INIT_LOCK                  = C.DB_INIT_LOCK
+	DB_INIT_LOG                   = C.DB_INIT_LOG
+	DB_INIT_MPOOL                 = C.DB_INIT_MPOOL
+	DB_INIT_TXN                   = C.DB_INIT_TXN
+	DB_DELETE_ANY                 = C.DB_DELETE_ANY
+	DB_FIRST                      = C.DB_FIRST
+	DB_LAST                       = C.DB_LAST
+	DB_CURRENT                    = C.DB_CURRENT
+	DB_NEXT                       = C.DB_NEXT
+	DB_PREV                       = C.DB_PREV
+	DB_SET                        = C.DB_SET
+	DB_SET_RANGE                  = C.DB_SET_RANGE
+	DB_CURRENT_BINDING            = C.DB_CURRENT_BINDING
+	DB_SET_RANGE_REVERSE          = C.DB_SET_RANGE_REVERSE
+	DB_RMW                        = C.DB_RMW
+	DB_IS_RESETTING_OP            = C.DB_IS_RESETTING_OP
+	DB_PRELOCKED                  = C.DB_PRELOCKED
+	DB_PRELOCKED_WRITE            = C.DB_PRELOCKED_WRITE
+	DB_IS_HOT_INDEX               = C.DB_IS_HOT_INDEX
+	DBC_DISABLE_PREFETCHING       = C.DBC_DISABLE_PREFETCHING
+	DB_UPDATE_CMP_DESCRIPTOR      = C.DB_UPDATE_CMP_DESCRIPTOR
+	TOKUFT_DIRTY_SHUTDOWN         = C.TOKUFT_DIRTY_SHUTDOWN
+	DB_DBT_APPMALLOC              = C.DB_DBT_APPMALLOC
+	DB_DBT_DUPOK                  = C.DB_DBT_DUPOK
+	DB_DBT_MALLOC                 = C.DB_DBT_MALLOC
+	DB_DBT_MULTIPLE               = C.DB_DBT_MULTIPLE
+	DB_DBT_REALLOC                = C.DB_DBT_REALLOC
+	DB_DBT_USERMEM                = C.DB_DBT_USERMEM
+	DB_LOG_AUTOREMOVE             = C.DB_LOG_AUTOREMOVE
+	DB_TXN_WRITE_NOSYNC           = C.DB_TXN_WRITE_NOSYNC
+	DB_TXN_NOWAIT                 = C.DB_TXN_NOWAIT
+	DB_TXN_SYNC                   = C.DB_TXN_SYNC
+	DB_TXN_SNAPSHOT               = C.DB_TXN_SNAPSHOT
+	DB_READ_UNCOMMITTED           = C.DB_READ_UNCOMMITTED
+	DB_READ_COMMITTED             = C.DB_READ_COMMITTED
+	DB_INHERIT_ISOLATION          = C.DB_INHERIT_ISOLATION
+	DB_SERIALIZABLE               = C.DB_SERIALIZABLE
+	DB_TXN_READ_ONLY              = C.DB_TXN_READ_ONLY
+	LOADER_DISALLOW_PUTS          = C.LOADER_DISALLOW_PUTS
+	LOADER_COMPRESS_INTERMEDIATES = C.LOADER_COMPRESS_INTERMEDIATES
+)
