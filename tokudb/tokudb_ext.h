@@ -21,6 +21,10 @@ int db_get(DB *, DB_TXN *, DBT *, DBT *, uint32_t);
 int db_put(DB *, DB_TXN *, DBT *, DBT *, uint32_t);
 int db_del(DB *, DB_TXN *, DBT *, uint32_t);
 
+int db_cursor(DB *, DB_TXN *, DBC **, uint32_t);
+
+int cursor_close(DBC*);
+int cursor_get(DBC *, DBT *, DBT *, uint32_t);
 
 #ifdef __cplusplus
 }

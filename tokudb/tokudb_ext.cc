@@ -43,4 +43,17 @@ int db_del(DB *db, DB_TXN *tx, DBT *key, uint32_t flags) {
     return db->del(db, tx, key, flags);
 }
 
+
+int db_cursor(DB *db, DB_TXN *tx, DBC** c, uint32_t flags) {
+    return db->cursor(db, tx, c, flags);
+}
+
+int cursor_close(DBC *c) {
+    return c->c_close(c);
+}
+
+int cursor_get(DBC *c, DBT *key, DBT *value, uint32_t flags) {
+    return c->c_get(c, key, value, flags);
+}
+
 }

@@ -68,7 +68,7 @@ func (tx *Tx) Get(db *DB, key []byte) ([]byte, error) {
 	ckey := Wrap(key)
 	var cval Val
 	ret := C.db_get(db.db, tx.tx, (*C.DBT)(&ckey), (*C.DBT)(&cval), 0)
-	if Errno(ret) == DB_NOTFOUND {
+	if Errno(ret) == NOTFOUND {
 		return nil, nil
 	}
 	return cval.Bytes(), errno(ret)
@@ -84,9 +84,18 @@ func (tx *Tx) Put(db *DB, key []byte, value []byte) error {
 func (tx *Tx) Delete(db *DB, key []byte) error {
 	ckey := Wrap(key)
 	ret := C.db_del(db.db, tx.tx, (*C.DBT)(&ckey), 0)
-	if Errno(ret) == DB_NOTFOUND {
+	if Errno(ret) == NOTFOUND {
 		return nil
 	}
 
 	return errno(ret)
+}
+
+func (tx *Tx) Cursor(db *DB) (*Cursor, error) {
+	c := new(Cursor)
+	r := C.db_cursor(db.db, tx.tx, &c.cursor, 0)
+	if r != SUCCESS {
+		return nil, errno(r)
+	}
+	return c, nil
 }
