@@ -117,11 +117,21 @@ func TestBase(t *testing.T) {
 		t.Fatal(string(k))
 	}
 
-	if err := c.Close(); err != nil {
+	if _, err := tx.Get(db, []byte("1")); err != nil {
 		t.Fatal(err)
 	}
 
-	if _, err := tx.Get(db, []byte("1")); err != nil {
+	if err := tx.Delete(db, []byte("5")); err != nil {
+		t.Fatal(err)
+	}
+
+	if k, _, err := c.Get([]byte("5"), nil, SET_RANGE); err != nil {
+		t.Fatal(err)
+	} else if string(k) != "6" {
+		t.Fatal(string(k))
+	}
+
+	if err := c.Close(); err != nil {
 		t.Fatal(err)
 	}
 
