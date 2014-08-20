@@ -147,11 +147,36 @@ func TestBase(t *testing.T) {
 
 	tx.Abort()
 
+	tx, _ = env.BeginTx(nil, TXN_SNAPSHOT|TXN_READ_ONLY)
+
 	if v, err := tx.Get(db, []byte("invalid_key")); err != nil {
 		t.Fatal(err)
 	} else if v != nil {
 		t.Fatal("must nil")
 	}
+
+	tx.Abort()
+
+	tx, _ = env.BeginTx(nil, TXN_SNAPSHOT|TXN_READ_ONLY)
+
+	c, err = tx.Cursor(db)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	if tx1, err := env.BeginTx(nil, 0); err != nil {
+		t.Fatal(err)
+	} else {
+		if err = tx1.Delete(db, []byte("key")); err != nil {
+			t.Fatal(err)
+		}
+
+		if err = tx1.Commit(); err != nil {
+			t.Fatal(err)
+		}
+	}
+
+	tx.Abort()
 
 	if err := db.Close(); err != nil {
 		t.Fatal(err)
